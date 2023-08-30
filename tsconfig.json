@@ -1,0 +1,105 @@
+{
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.vue",
+    "src/**/*.scss",
+    "tests/**/*.ts",
+    "global.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
+  ],
+  "compilerOptions": {
+    /* ------------------------  Type Checking （类型检查)   ----------------------- */
+    // 代码中允许存在永远不会执行的代码 (undefined警告)
+    "allowUnreachableCode": false,
+    // 代码中允许存在不使用的标记语句 (undefined警告)
+    "allowUnusedLabels": false,
+    // 代码始终保持严格模式 (true)
+    "alwaysStrict": true,
+    // 严格按照可选属性类型列表定义属性值，不可赋值为undefined
+    "exactOptionalPropertyTypes": true,
+    // 不允许 switch 中存在空（不包含 break 或者 return） case
+    "noFallthroughCasesInSwitch": true,
+    // 禁止属性类型是隐式any。true: 禁止; false: 忽略 ）
+    "noImplicitAny": true,
+    // 	禁止不明确的重写,需要添加 override 标签。true: 禁止; false: 忽略
+    "noImplicitOverride": true,
+    // 禁止代码块有不明确的返回值。true: 禁止; false: 忽略
+    "noImplicitReturns": false,
+    // 禁止函数内部使用没有明确类型的this。true: 禁止; false: 忽略
+    "noImplicitThis": true,
+    // 禁止使用.连接符访问未明确定义的属性
+    "noPropertyAccessFromIndexSignature": true,
+    // 为 true 时，当使用索引属性时，会默认为索引属性添加undefined属性值
+    "noUncheckedIndexedAccess": false,
+    // 为 true 时，当存在未使用的局部变量时，会抛出错误 (false)
+    "noUnusedLocals": true,
+    // 为 true 时，当存在未使用的参数时，会抛出错误  (false)
+    "noUnusedParameters": true,
+    // 为 true ，当使用call、bind、apply调用函数时，提供正确的类型检查  (false)
+    "strictBindCallApply": true,
+    // 为 true ，对函数参数类型严格把控 (false)
+    "strictFunctionTypes": true,
+    // 为 true ，对null 和 undefined 类型严格把控 （false）
+    "strictNullChecks": true,
+    // 为 true ，当类属性需要赋值但未赋值时抛出错误 （false）
+    "strictPropertyInitialization": true,
+    // 为 true ，catch 块中的 error 参数类型设置为 unknown (false)
+    "useUnknownInCatchVariables": true,
+    /* ------------------------  Type Modules （模块)   ----------------------- */
+    // 允许除了js和ts以外其他文件扩展名称
+    "allowArbitraryExtensions": true,
+    // 非相对路径的，基目录
+    "baseUrl": ".",
+    // 根目录
+    "rootDir": ".",
+    // "rootDirs": ".",
+    // 模块类型：CommonJS、UMD、AMD、ESNext、node16/nodenext
+    "module": "ESNext",
+    // 模块解析方式：node16、nodenext、node10(node)、classic
+    "moduleResolution": "node",
+    // 前缀设置，会先查找 index.ios.ts 然后 index.h5.ts 最后 index.ts
+    "moduleSuffixes": [
+      ".ios",
+      ".h5",
+      ""
+    ],
+    // 模块重定向配置路径
+    "paths": {},
+    // 允许引用 json 模块
+    "resolveJsonModule": true,
+    // 会解析模块对应的package.json中的exports和imports字段，当配置项moduleResolution为node16、nodenext 、bundler时，会默认启用
+    "resolvePackageJsonExports": true,
+    // 类型目录配置，默认情况下所有的 node_modules/@types 已包含了
+    "typeRoots": [
+      "node_modules/@types"
+    ],
+    // 包含了 node_modules/@types/node
+    "types": [
+      "node",
+      "jest",
+      "express"
+    ],
+    "esModuleInterop": false,
+    /* ------------------------  Emit (生成 d.ts 文件)   ----------------------- */
+    // 允许使用 扩展程序
+    "importHelpers": true,
+    /* ------------------------  JavaScript Support   ----------------------- */
+    // 允许加载 js 文件
+    "allowJs": true,
+    // 是否检查 js 文件
+    "checkJs": false,
+    /* ------------------------  Editor Support   ----------------------- */
+    // 关闭大文件导致内存限制
+    "disableSizeLimit": false,
+    // ts 插件，可以使用额外的功能
+    "plugins": [],
+    // 需要导出默认 Default 模块
+    "allowSyntheticDefaultImports": false,
+    // 将 jsx 中的标签转为 React.createElement
+    "jsx": "react",
+    // "jsxFactory": "react", 自定义函数 例如 React.createElement
+    "target": "ESNext"
+  }
+}
