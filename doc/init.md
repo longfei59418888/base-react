@@ -4,7 +4,7 @@
 
 ### 环境配置
 
-- node 版本锁定
+- node 版本锁定 (基于 nvm 设置)
   - 添加 .nvmrc
     ```
     18.15.0
@@ -46,18 +46,67 @@
 1. 框架 React 全家桶
 
   ```
-  yarn add React React-dom
+  yarn add React React-dom @types/react @types/react-dom @babel/preset-react
   yarn add redux
   yarn add react-router
   ```
 
+- 添加 @babel/preset-react 到 .babelrc 中
+
 2. 开发环境搭建
 
   ```
-   yarn add tyepscript
+   yarn add tyepscript @babel/preset-typescript
    yarn add webpack
-   yarn add bable
+   yarn add babel-loader @babel/core @babel/cli @babel/preset-env @babel/plugin-transform-runtime @babel/runtime-corejs3
+   yarn add cross-env
   ```
+
+- 配置 typescript
+  - 添加 tsconfig.json
+    - include
+    - exclude
+    - compilerOptions
+      - 类型检查
+      - 引用模块配置【路径、解析方式等】
+  - 添加 ts-loader 到 webpack 模块中
+  - 添加 ForkTsCheckerWebpackPlugin 到 webpack 插件中
+- 配置 babel
+  - 添加配置 .babelrc
+  - 添加预设 @babel/preset-env
+  - 添加 babel-loader 到 webpack 模块中
+- webpack
+  - base
+    - 配置入口
+    - resolve
+      - extensions
+    - 配置模块
+      - ts、tsx、jsx、js [ts-loader、babel-loader]
+      - scss、module.scss、css [style-loader、css-loader、post-loader、sass-loader]
+        - postcss 配置 (autoprefixer、postcss-px2rem、tailwindcss)
+      - 图片资源（png|svg|jpg|jpeg|gif）[file-loader、url-loader]
+        - asset
+        - asset/source
+        - asset/inline
+  - dev
+    - mode: development
+    - devtool: inline-source-map
+    - devServer
+      - host:port
+      - hot: v4 之后开启热替换
+        - module.hot 代码中使用 api 开启热替换
+      - proxy 设置代理
+    - 模块配置
+      - 静态资源配置
+    - 插件配置
+      - HtmlWebpackPlugin
+      - DefinePlugin
+      - copy-webpack-plugin
+      - CssMinimizerWebpackPlugin
+      - ImageMinimizerWebpackPlugin
+      - MiniCssExtractPlugin
+      - TerserWebpackPlugin
+
 
 3. 代码质量控制
 
@@ -77,10 +126,11 @@
 ### 搭建步骤
 
 1. 环境准备
-  - 配置 webpack 
-    - 入口位置
-    - output 配置
-    - 开发工具 webpack-dev-server
-    - 
+
+- 配置 webpack
+  - 入口位置
+  - output 配置
+  - 开发工具 webpack-dev-server
+  - 
 
 

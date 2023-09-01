@@ -7,4 +7,12 @@ function component() {
   return element;
 }
 
+// 开启热替换
+// if (module.hot) {
+//   module.hot.accept('./print.js', function() {
+//     console.log('Accepting the updated printMe module!');
+//     printMe();
+//   })
+// }
+
 document.body.appendChild(component());
