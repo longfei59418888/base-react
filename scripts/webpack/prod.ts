@@ -1,13 +1,12 @@
+// const HtmlWebpackPlugin = require('html-webpack-plugin')
+import ForkTsCheckerWebpackPlugin from 'fork-ts-checker-webpack-plugin'
+import * as webpack from 'webpack'
 import merge from 'webpack-merge'
-import * as webpack from 'webpack';
 
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import base from './base'
 
-import base from "./base";
-import ForkTsCheckerWebpackPlugin from "fork-ts-checker-webpack-plugin";
-
-
-const config: webpack.Configuration & Pick<webpack.WebpackOptionsNormalized, 'devServer'> = {
+const config: webpack.Configuration &
+  Pick<webpack.WebpackOptionsNormalized, 'devServer'> = {
   devtool: 'inline-source-map',
   devServer: {
     static: './dist',
@@ -24,7 +23,7 @@ const config: webpack.Configuration & Pick<webpack.WebpackOptionsNormalized, 'de
         },
       },
     }),
-  ]
+  ],
   // plugins: [
   //   new HtmlWebpackPlugin({
   //     title: '管理输出',

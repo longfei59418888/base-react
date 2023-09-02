@@ -47,7 +47,7 @@
 
   ```
   yarn add React React-dom @types/react @types/react-dom @babel/preset-react
-  yarn add redux
+  yarn add zustand
   yarn add react-router
   ```
 
@@ -106,6 +106,12 @@
       - ImageMinimizerWebpackPlugin
       - MiniCssExtractPlugin
       - TerserWebpackPlugin
+    - 优化
+      - Cache
+      - DLL
+      - 最小化输出 chunk
+      - 避免其他优化removeAvailableModules、removeEmptyChunks、splitChunks
+      - 禁止输出信息 output.pathinfo
 
 
 3. 代码质量控制
@@ -115,6 +121,7 @@
   yarn add husky
   yarn add jest
   ```
+- eslint
 
 4. 其他工具
 

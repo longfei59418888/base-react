@@ -1,14 +1,19 @@
-import * as webpack from 'webpack';
+import { resolve } from 'path'
+import * as webpack from 'webpack'
+
+const cwd = process.cwd()
 
 const config: webpack.Configuration = {
   entry: {
-    app: "./src/app.ts"
+    app: './src/main.tsx',
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js'],
     alias: {
-      "@": '/src/'
-    }
+      '@': resolve(cwd, 'src'),
+    },
+    // symlinks: false,
+    // cacheWithContext: false
   },
   module: {
     rules: [
@@ -19,16 +24,16 @@ const config: webpack.Configuration = {
             loader: 'ts-loader',
             options: {
               // 关闭检查
-              transpileOnly: true
-            }
-          }
+              transpileOnly: true,
+            },
+          },
         ],
         exclude: /node_modules/,
       },
       {
         test: /\.(js|jsx)$/,
-        use: 'babel-loader',
-        exclude: /node_modules/
+        use: ['thread-loader', 'babel-loader'],
+        exclude: /node_modules/,
       },
       {
         test: /\.css$/,
@@ -37,11 +42,11 @@ const config: webpack.Configuration = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 1
-            }
+              importLoaders: 1,
+            },
           },
-          'postcss-loader'
-        ]
+          'postcss-loader',
+        ],
       },
       {
         test: /\.scss$/,
@@ -50,13 +55,13 @@ const config: webpack.Configuration = {
           {
             loader: 'css-loader',
             options: {
-              importLoaders: 2
-            }
+              importLoaders: 2,
+            },
           },
           'postcss-loader',
-          'sass-loader'
+          'sass-loader',
         ],
-        exclude: /\.module\.scss$/
+        exclude: /\.module\.scss$/,
       },
       {
         test: /\.module\.scss$/,
@@ -66,17 +71,23 @@ const config: webpack.Configuration = {
             loader: 'css-loader',
             options: {
               importLoaders: 2,
-              modules: true
-            }
+              modules: true,
+            },
           },
           'postcss-loader',
-          'sass-loader'
-        ]
+          {
+            loader: 'thread-loader',
+            options: {
+              workerParallelJobs: 2,
+            },
+          },
+          'sass-loader',
+        ],
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf])/,
         // file-loader
-        type: "asset/resource"
+        type: 'asset/resource',
       },
       // {
       //   test: /\.(png|svg|jpg|jpeg|gif)/,
@@ -88,10 +99,9 @@ const config: webpack.Configuration = {
       //   },
       //   resourceQuery: /raw/,
       // }
-    ]
+    ],
   },
-  plugins: []
-
+  plugins: [],
 }
 
-export default config;
+export default config

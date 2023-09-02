@@ -39,9 +39,25 @@
 ### 脚本配置
 
 - scripts
-- bin
-- config：设置 scripts 里的脚本在运行时的参数
-    - process.env.npm_package_config_port 可以访问 config.port 属性
+  - https://npm.nodejs.cn/cli/v9/using-npm/scripts#npm-install
+  - bin
+  - config：设置 scripts 里的脚本在运行时的参数
+      - process.env.npm_package_config_port 可以访问 config.port 属性
+  - 内置脚本功能
+    - 前后脚本：在某个脚本前面加上[pre]或者[post],会在执行脚本的前后执行
+    - 生命周期脚本：
+      - prepare：本地 npm install 上运行、在 npm publish 和 npm pack 期间、
+      - dependencies：修改依赖
+  - 生命周期
+    - prepare
+    - preinstall
+    - install
+    - postinstall
+    - prepublish
+    - preprepare
+    - prepare
+    - postprepare
+  
 
 ### 依赖配置
 

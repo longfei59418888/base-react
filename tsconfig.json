@@ -1,7 +1,7 @@
 {
   "include": [
     "src/**/*.ts",
-    "src/**/*.vue",
+    "src/**/*.tsx",
     "src/**/*.scss",
     "tests/**/*.ts",
     "global.d.ts"
@@ -58,28 +58,34 @@
     // 模块类型：CommonJS、UMD、AMD、ESNext、node16/nodenext
     "module": "ESNext",
     // 模块解析方式：node16、nodenext、node10(node)、classic
-    "moduleResolution": "node16",
+    "moduleResolution": "Node",
     // 前缀设置，会先查找 index.ios.ts 然后 index.h5.ts 最后 index.ts
-    "moduleSuffixes": [
-      ".ios",
-      ".h5",
-      ""
-    ],
+    //    "moduleSuffixes": [
+    //      ".ios",
+    //      ".h5",
+    //      ""
+    //    ],
     // 模块重定向配置路径
-    "paths": {},
+    "paths": {
+      "@/*": [
+        "src/*"
+      ]
+    },
     // 允许引用 json 模块
-    "resolveJsonModule": true,
+//    "resolveJsonModule": true,
     // 会解析模块对应的package.json中的exports和imports字段，当配置项moduleResolution为node16、nodenext 、bundler时，会默认启用
-    "resolvePackageJsonExports": true,
+//    "resolvePackageJsonExports": true,
     // 类型目录配置，默认情况下所有的 node_modules/@types 已包含了
     "typeRoots": [
-      "node_modules/@types"
+      "node_modules/@types",
+      "global.d.ts"
     ],
     // 包含了 node_modules/@types/node
     "types": [
+      "webpack-env",
       "node",
-      "jest",
-      "express"
+      "jest"
+      //      "express"
     ],
     "esModuleInterop": false,
     "sourceMap": true,
