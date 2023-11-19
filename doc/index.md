@@ -1,0 +1,60 @@
+- package.json 介绍
+    - 描述配置
+        - 名称
+        - 版本(不兼容版本、向下兼容版本、修复版本)
+    - 文件配置
+        - 发布的文件
+        - 项目类型
+        - 入口文件[main、browser、module、bin]
+    - 脚本配置
+        - 自定义脚本
+        - 内置脚本[pre、post]
+    - 依赖配置[开发依赖、依赖、同伴依赖]
+    - 系统配置
+        - engines
+        - os
+
+- 初始化环境
+    - node 环境 [nvmrc]
+    - yarn 源配置 [yarnrc]
+    - git 配置 [gitgnore]
+    - typescript 配置
+        - 添加 tsconfig
+            - typeRoots 全局声明
+            - paths 映射
+            - include/exclude
+        - 添加 ts-loader
+        - 添加 typescript-eslint 工具
+        - 添加 ts-jest
+    - babel
+        - 添加 babel-loader
+        - 添加 babelrc 配置
+            - react 预设
+            - env 预设
+    - webpack
+        - 开发环境
+            - 入口文件、输出文件、路由解析、devServer、mode、devtool
+            - module
+                - ts/js
+                - css/scss
+                - 静态文件
+            - 插件
+                - 环境设置
+                - html生成
+            - 优化
+                - 缓存
+                - 关闭优化
+- 代码搭建
+    - react
+        - 创建入口
+        - 路由配置
+    - 状态管理器
+- 检查
+  - eslint
+    - 配置文件
+      - 添加 扩展
+      - 添加 插件
+    
+  
+
+

@@ -117,7 +117,7 @@
 3. 代码质量控制
 
   ```
-  yarn add stylelint prettier eslint
+  yarn add stylelint prettier eslint commitlint
   yarn add husky
   yarn add jest
   ```

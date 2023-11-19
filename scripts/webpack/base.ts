@@ -75,12 +75,6 @@ const config: webpack.Configuration = {
             },
           },
           'postcss-loader',
-          {
-            loader: 'thread-loader',
-            options: {
-              workerParallelJobs: 2,
-            },
-          },
           'sass-loader',
         ],
       },
